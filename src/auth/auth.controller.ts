@@ -18,7 +18,7 @@ export class AuthController {
       throw new UnauthorizedException('Invalid credentials');
     }
     const token = await this.authService.generateJwtToken(user);
-    return { access_token: token };
+    return { access_token: token, username: user.username };
   }
 
   @Post('logout')
